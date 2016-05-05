@@ -1,0 +1,47 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head> <meta charset="utf-8"> 
+ <meta http-equiv="X-UA-Compatible" content="chrome=1"> 
+ <title>Hub Tickets Admin - Welcome!</title>
+ <link rel="stylesheet" href="~/css/structure.css" type="text/css" />
+ <link rel="stylesheet" href="~/css/navigation.css" type="text/css" />
+ <link rel="stylesheet" href=".~/css/accordion.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/myprofile.css" type="text/css" />
+ 
+ <style type="text/css" >
+  h3 a{cursor:pointer}
+  h4 a{cursor:pointer;color:blue}
+ </style>
+
+</head>
+<body>
+ <header id="header">
+  <img src="~/images/hubtickets.gif" alt="bdlogo.gif" title="tickets Logo"/>
+  <h2>Welcome to Hub Tickets Admin UI</h2>
+  <ul>
+  <li><a href="~/">Search</a></li>
+  <li><a href="javascript:logout()">Log Out</a></li>
+  </ul>
+  <div style="clear:both"></div> 
+ </header>
+
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+
+
+ <script type="text/javascript" src="~/scripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery.tabletojson.js"></script>
+
+ <script type="text/javascript" src="~/scripts/startup.js"></script>
+ 
+</body>
+</html>
+  

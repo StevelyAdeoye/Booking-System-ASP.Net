@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+ <title>Welcome to Oscher Hall Tickets Online</title>
+ <script type="text/javascript" src="~/scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/scripts/bookings.js"></script> 
+    <link rel="stylesheet" href="~/css/bookings.css" type="text/css" />
+</head>
+<body id="body" onload="" ondrop="drop(event)" ondragover="checkDrag(event)">
+    <div id='header'>
+        <div>
+            <img src="~/images/tickets.png" width='253' height='202' style="float:left" />
+            <div style="margin-top:2px;float:left">
+                <img src="~/images/hubtickets.gif" alt='hubtickets.gif' />
+                <div id="nav">
+                    <a class='anonymous' href="javascript:showLogForm()">Log In</a>
+                    <span>@Html.ActionLink("Admin", "Index", "Admin")</span>
+                    <span>@Html.ActionLink("Register", "Create", "Home")</span>
+                    <span>@Html.ActionLink("My Booking", "MyBooking", "Home")</span>
+                    <a class='member' href="javascript:logMeOut()" style="display:none">Log Out</a>
+                </div>
+                <div style="clear:both"></div>
+                <div id='loginputs' style="float:left;padding:none;margin-left:-12px">
+                    <form id='logform' method='post' style="display:none;">
+                        <fieldset style="border:none;padding:none">
+                            <label for="username">User Name:&nbsp;</label><input id='username' type='text' name='username' required placeholder='User Name' />
+                            &nbsp;<label for="password">Password:&nbsp;</label><input id='password' type='password' name='password' required placeholder='Password' />
+                            <input type="button" name="submit" id="submit" value="Log In" onclick="loguserIn()" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+
+</body>
+</html>
+
+

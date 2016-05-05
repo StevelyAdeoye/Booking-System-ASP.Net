@@ -1,0 +1,48 @@
+﻿@model IEnumerable<bookingsMVC.Models.member>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Shared/_Layout.cshtml";
+}
+
+<div id="main">
+    <div id="searchUs">
+        <h2 style="text-align:center;text-decoration:underline">Hub Tickets Administration</h2>
+        <h3 style="text-align:center">
+            Click on a letter below to begin a Partial Last Name search, e.g., B for Broon, Black, Bloggs, etc.<br /><br />
+            ||
+            <a onclick="getTheMessages('A','1')"> A </a>|<a onclick="getTheMessages('B','1')"> B </a>|<a> C </a>|
+            <a> D </a>|<a> E </a>|<a> F </a>|
+            <a> G </a>|<a> H </a>|<a> I </a>|
+            <a> J </a>|<a> K </a>|<a> L </a>|
+            <a> M </a>|<a> N </a>|<a> O </a>|
+            <a> P </a>|<a> Q </a>|<a> R </a>|
+            <a> S </a>|<a> T </a>|<a> U </a>|
+            <a> V </a>|<a> W </a>|<a> X </a>|
+            <a> Y </a>|<a> Z </a>
+            ||
+            <a onclick="getTheMessages('ALL','4')"> View All </a>
+            ||
+        </h3>
+        <h4 style="text-align:center">
+            Or select from the following Membership Categories <br /><br />
+            ||
+            <a id="Ordinary" class="hrefs" onclick="getTheMessages(this.id,'2')">Ordinary</a> |
+            <a id="Friend" class="hrefs" onclick="getTheMessages(this.id,'2')">Friend</a> |
+            <a id="Premier" class="hrefs" onclick="getTheMessages(this.id,'2')">Premier</a>
+            ||
+        </h4>
+        <div style="margin:auto">
+            <h3 style="text-align:center">
+                Or Search By Delivery Town:
+                <select id="myTown">
+                    @foreach (var item in Model)
+                    {
+                        <option id="@Html.DisplayFor(model => item.town)" value="@Html.DisplayFor(model => item.town)"> @Html.DisplayFor(model => item.town)</option>
+                    }
+                </select>
+                <input type="button" value="Search" onclick="getTheTown()" />
+            </h3>
+        </div>
+    </div>
+</div>

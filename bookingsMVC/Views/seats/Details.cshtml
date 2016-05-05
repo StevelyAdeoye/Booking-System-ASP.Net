@@ -1,0 +1,29 @@
+﻿@model bookingsMVC.Models.seats
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>seats</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.seatnum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.seatnum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.status)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

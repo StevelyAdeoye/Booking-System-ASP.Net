@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Thanx";
+}
+
+  <div>
+   
+      <a title='Back to Home Page' href='/Home'>Back to Hub Tickets</a>
+    </div>
+    <div style="clear:both"></div>
+   
+  <div style="clear:both"></div>
+  <div style="margin-left:2%;margin-top:2%;">
+   <h4>
+    Thank you <span id='username1' style='color:DarkBlue'></span> for purchasing the following seat tickets from Hub Tickets. Your tickets should arrive at your registered address 
+    within five working days.
+   </h4>
+   <h4>
+    Purchased Seats: <span id='pseats' style='color:DarkBlue'></span>
+   </h4>
+  </div>
+ 
+
+
+<script>
+    $("#username1").html(sessionStorage['user']);
+    if (sessionStorage['tickets']) {
+        $("#cancelBooking").attr("disabled", false);
+        $("#pseats").html(sessionStorage['tickets']);
+    } else {
+        $("#pseats").html("** You have no current bookings to cancel! **").css("color", "red");
+    }
+    
+</script>
+<script>
+    hid();
+</script>
+  
+
+
+

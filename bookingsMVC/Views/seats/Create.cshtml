@@ -1,0 +1,41 @@
+﻿@model bookingsMVC.Models.seats
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>seats</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.seatnum)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.seatnum)
+            @Html.ValidationMessageFor(model => model.seatnum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.status)
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

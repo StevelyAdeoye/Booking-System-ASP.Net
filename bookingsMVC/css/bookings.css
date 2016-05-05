@@ -1,0 +1,51 @@
+body {
+margin-top : 0%;
+}
+#wrapper {
+width : 80%;
+margin : 0 auto;
+}
+#header {
+margin : auto;
+width : 90%;
+margin-top : 0%;
+}
+#nav1 {
+float : left;
+margin-left : 50px;
+}
+#nav a {
+text-decoration : none;
+float : left;
+margin-right : 10px;
+font-size : 20px;
+color : darkblue;
+}
+#nav input {
+color : darkblue;
+}
+#submit {
+border : black solid 1px;
+cursor : pointer;
+background-color : white;
+}
+#register label {
+float : left;
+width : 120px;
+text-align : right;
+}
+#maincontainer {
+width : 50%;
+margin : auto;
+padding : 5px;
+text-align : justify;
+}
+#footer {
+margin : auto;
+width : 90%;
+margin-top : 2%;
+}
+.hovered {
+    background-color: #F2F2F2;
+    /*golden yellow*/
+}

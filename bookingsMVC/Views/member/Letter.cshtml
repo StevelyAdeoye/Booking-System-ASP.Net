@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Letter";
+    Layout = "~/Views/Admin/Shared/_Layout.cshtml";
+}
+
+<div id="main">
+    <div class="accordion" style="width:100%;">
+        <div style="width:100%;display:block">
+            <h2>
+                <span>View Search Results For <span id='sr'></span> - Showing <span id="lpage"></span><span id="therest"></span></span>
+            </h2>
+            <div id="mytable" style="float:left;width:48%;margin-top:15px">
+                <table id="resultstable">
+                    <tr class="yellow">
+                        <th>#REC</th>
+                        <th>USERNAME</th>
+                        <th>CONTACT</th>
+                        <th>MEMCAT</th>
+                        <th>TOWN</th>
+                    </tr>
+                </table>
+                <input type="button" class="fp" id="f10" title="First 10 Records" onclick="showAll(quant.value, 0)" disabled="disabled" value="|<Start" />
+                <input type="button" class="nl" id="n10" title="Next 10 Records" onclick="showAll(quant.value, 10)" disabled="disabled" value="Next 10>>" />
+                <input type="button" class="fp" id="p10" title="Previous 10 Records" onclick="showAll(quant.value, -10)" disabled="disabled" value="<<Previous 10" />
+                <input type="button" class="nl" id="l10" title="Last 10 Records" onclick="showAll(quant.value, 'last')" disabled="disabled" value="End>|" />
+                <select id="quant" onchange="if (this.selectedIndex) showAll(this.value,1);">
+                    <option value="Records per page:">Records per page:</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="90">90</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div id="myrecs" style="float:left;width:50%;margin-top:15px">
+                <form id="au" style="float:left;margin-left:3px;width:99%">
+                    <fieldset id="au1" class="register" style="width:95%">
+                        <legend>Account Information - Edit or Delete</legend><br />
+
+                        <label for="username" class="reglabel">User Name:</label>
+                        <input name="username" id="username" type="text" disabled="disabled" value="" /><br />
+
+
+                        <label for="fname" class="reglabel">First Name:</label>
+                        <input disabled="disabled" name="fname" type="text" id="fname" class="textEntry" value="" /><br />
+
+                        <label for="lname" class="reglabel">Last Name:</label>
+                        <input disabled="disabled" name="lname" type="text" id="lname" class="textEntry" value="" /><br />
+
+                        <label for="address1" class="reglabel">Adress 1:</label>
+                        <input disabled="disabled" name="address1" type="text" id="address1" class="textEntry" value="" /><br />
+
+                        <label for="address2" class="reglabel">Address 2:</label>
+                        <input disabled="disabled" name="address2" type="text" id="address2" class="textEntry" value="" /><br />
+
+                        <label for="town" class="reglabel">Town:</label>
+                        <input disabled="disabled" name="town" id="town" type="text" class="textEntry" value="" /><br />
+
+                        <label for="postcode" class="reglabel">Post Code:</label>
+                        <input disabled="disabled" name="postcode" id="postcode" type="text" class="textEntry" /><br />
+
+                        <label for="phone" class="reglabel">Phone:</label>
+                        <input disabled="disabled" name="phone" id="phone" type="text" class="textEntry" /><br />
+
+                        <label for="email" id="EmailLabel" class="reglabel">E-mail:</label>
+                        <input disabled="disabled" name="email" type="email" id="email" class="textEntry" /><br />
+
+                        <label for="memcat" class="reglabel">Memcat:</label>
+                        <input name="memcat" type="text" id="memcat" class="textEntry form" disabled="disabled" style="color: black" value="" /><br />
+
+
+                        <div>
+                            <fieldset id="fs" style="float: right; margin-right: 20%">
+                                <legend>Member Catergory - Select to Change</legend>
+                                <input type="radio" name="mystatus" title="Friend" value="friend" id="friend1" class="radios" onclick="radio(parseInt($('#rec').html() - 1), this.value)" /><span title="Friend">Friend</span><br />
+                                <input type="radio" name="mystatus" title="Oridinary" value="Ordinary" id="ordinary1" class="radios" onclick="radio(parseInt($('#rec').html() - 1), this.value)" /><span title="Oridinary">Oridinary</span><br />
+                                <input type="radio" name="mystatus" title="Premier" value="Premier" id="premier1" class="radios sudel" onclick="radio(parseInt($('#rec').html() - 1), this.value)" /><span title="Premier">Premier</span><br />
+                                <input type="radio" name="mystatus" title="Delete this Member" value="deleted" id="deleted1" class="delete radios sudel" onclick="deleted(parseInt($('#rec').html()) - 1)" /><span class="sudelHtml" id="d1" title="Delete this Member">Delete</span><br />
+                            </fieldset>
+                        </div>
+
+                        <p id="hits">
+                            Viewing #<span id="rec"></span> of <span id="tot"></span> Records&nbsp;<span style="display: none; color: red" class="mfd" id="deletion"></span><span style="display: none; color: red" class="mfd"> record(s) marked for deletion!</span>
+                        </p>
+
+
+
+                    </fieldset>
+                    &nbsp;<input class="rbuttons" type="button" id="udbutton" value="Update" disabled="disabled" title="Commit Changes" onclick="updateMe()" />
+                    <input class="rbuttons" type="button" value="Cancel" onclick="cancelMe()" id="resetMe" title="Cancel Changes" />
+                    <p>Edit or Delete account details and click Update to commit changes or Cancel to reset.</p>
+                </form>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../scripts/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../scripts/startup.js"></script>
+<script type="text/jscript">
+    getMessages();
+</script>
