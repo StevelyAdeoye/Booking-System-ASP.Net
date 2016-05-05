@@ -1,5 +1,5 @@
 # Booking-System-ASP.Net
-1. Membership Categories
+Membership Categories
 
 There are three categories of Hall membership:
 
@@ -10,11 +10,11 @@ There are three categories of Hall membership:
 
 
 
-2. Required Functionality – Landing Page (index.html)
+ Functionality – Landing Page (index.html)
 
 When the page loads (index.html) all of the required events (outlined below) will be attached to the appropriate objects. An AJAX request will be made to getseats.php and if successful a json object containing the seat numbers (if any) of all seats already previously selected will be returned and their images will be set to unavailable. You should implement a consistent error reporting and trapping scheme to notify the user in an appropriate way of any errors returned. 
 
-3. Required Functionality. Authentication & Registration
+ Authentication & Registration
 
 Authentication (Login In)
 You are required to implement authentication using sessionStorage to manage this at the client side. When the page loads for the first time the login form (logform) will be hidden. When the user clicks the Log In link the loginputs div will fade in with a suitable delay and will display on the page as shown below. 
